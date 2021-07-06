@@ -5,9 +5,9 @@ namespace Reminder.Storage.Memory.Tests
 {
     public class ReminderStorageTests
     {
-        private ReminderItem GenerateMockItem()
+        private ReminderItem GenerateMockItem(DateTimeOffset dateTime = default)
         {
-            return new ReminderItem(Guid.NewGuid(), "1", "Hello", DateTimeOffset.UtcNow);
+            return new ReminderItem(Guid.NewGuid(), "1", "Hello", dateTime == default ? DateTimeOffset.UtcNow : dateTime);
         }
 
         [Test]
@@ -35,6 +35,7 @@ namespace Reminder.Storage.Memory.Tests
                 storage.Create(null));
         }
 
+        [Test]
         public void WhenCreate_IfExistsElementWithKey_ShouldThrowException()
         {
             var item = GenerateMockItem();
@@ -44,6 +45,30 @@ namespace Reminder.Storage.Memory.Tests
 
             Assert.Catch<ArgumentException>(() =>
                 storage.Create(item));
+        }
+
+        [Test]
+        public void WhenFindByDateTime_IfEmptyDateTimeSpecified_ShouldThrowException()
+        {
+            var storage = new ReminderStorage();
+
+            Assert.Catch<ArgumentException>(() => storage.FindByDateTime(default));
+        }
+
+        [Test]
+        public void WhenFindByDateTime_IfSpecifiedDateTime_ShouldFilterById()
+        {
+            var storage = new ReminderStorage();
+            var dateTime = DateTimeOffset.Parse("12.11.2021 14:28:00.120");
+            var item = GenerateMockItem(dateTime);
+
+            storage.Create(item);
+   
+
+            var items = storage.FindByDateTime(dateTime);
+        
+
+            Assert.IsNotEmpty(items);
         }
 
     }

@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{2867ACBD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reminder.Storage.Memory.Tests", "Reminder.Storage.Memory.Tests\Reminder.Storage.Memory.Tests.csproj", "{31050340-A1C5-4D1D-91A4-7BC5D475D534}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reminder.Domain", "Reminder.Domain\Reminder.Domain.csproj", "{9BD373D4-4F3F-4799-839F-F8CF16EC5423}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{31050340-A1C5-4D1D-91A4-7BC5D475D534}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31050340-A1C5-4D1D-91A4-7BC5D475D534}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31050340-A1C5-4D1D-91A4-7BC5D475D534}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BD373D4-4F3F-4799-839F-F8CF16EC5423}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BD373D4-4F3F-4799-839F-F8CF16EC5423}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BD373D4-4F3F-4799-839F-F8CF16EC5423}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BD373D4-4F3F-4799-839F-F8CF16EC5423}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,6 +45,7 @@ Global
 		{E01B534F-CF4B-490D-BC7A-3802F76FAA42} = {9EC97335-7AE5-4082-B64F-6CFFF15ED912}
 		{24DA9EEB-C39A-4404-A626-0644F97C3D77} = {9EC97335-7AE5-4082-B64F-6CFFF15ED912}
 		{31050340-A1C5-4D1D-91A4-7BC5D475D534} = {2867ACBD-336B-4B02-90DC-96698D87ED9F}
+		{9BD373D4-4F3F-4799-839F-F8CF16EC5423} = {9EC97335-7AE5-4082-B64F-6CFFF15ED912}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AB9E4F02-86AE-4DAC-A863-D7D7AD18EBAB}
