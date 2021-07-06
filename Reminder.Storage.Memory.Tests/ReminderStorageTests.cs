@@ -5,9 +5,39 @@ namespace Reminder.Storage.Memory.Tests
 {
     public class ReminderStorageTests
     {
-        private ReminderItem GenerateMockItem(DateTimeOffset dateTime = default)
+        private ReminderItem GenerateMockItem(
+            Guid? id = default,
+            string contactId = default,
+            string message = default,
+            DateTimeOffset? messageDate = default,
+            ReminderItemStatus? status = default)
         {
-            return new ReminderItem(Guid.NewGuid(), "1", "Hello", dateTime == default ? DateTimeOffset.UtcNow : dateTime);
+            if (!id.HasValue)
+            {
+                id = Guid.NewGuid();
+            }
+
+            if (contactId == null)
+            {
+                contactId = "123";
+            }
+
+            if (message == null)
+            {
+                message = "hello";
+            }
+
+            if (!status.HasValue)
+            {
+                status = ReminderItemStatus.Created;
+            }
+
+            if (!messageDate.HasValue)
+            {
+                messageDate = DateTimeOffset.Now;
+            }
+
+            return new ReminderItem(id.Value, contactId, message, messageDate.Value, status.Value);
         }
 
         [Test]
@@ -48,25 +78,25 @@ namespace Reminder.Storage.Memory.Tests
         }
 
         [Test]
-        public void WhenFindByDateTime_IfEmptyDateTimeSpecified_ShouldThrowException()
+        public void WhenFindByDateTime_IfNullFilterSpecified_ShouldThrowException()
         {
             var storage = new ReminderStorage();
 
-            Assert.Catch<ArgumentException>(() => storage.FindByDateTime(default));
+            Assert.Catch<ArgumentNullException>(() => storage.FindBy(default));
         }
 
         [Test]
-        public void WhenFindByDateTime_IfSpecifiedDateTime_ShouldFilterById()
+        public void WhenFindByDateTime_IfStatusSpecified_ShouldFilterByStatus()
         {
             var storage = new ReminderStorage();
-            var dateTime = DateTimeOffset.Parse("12.11.2021 14:28:00.120");
-            var item = GenerateMockItem(dateTime);
+            var item = GenerateMockItem(status: ReminderItemStatus.Created);
 
             storage.Create(item);
-   
 
-            var items = storage.FindByDateTime(dateTime);
-        
+
+            var items = storage.FindBy(
+                new ReminderItemFilter().Created());
+
 
             Assert.IsNotEmpty(items);
         }

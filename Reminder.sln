@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reminder.Storage.Memory.Tes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reminder.Domain", "Reminder.Domain\Reminder.Domain.csproj", "{9BD373D4-4F3F-4799-839F-F8CF16EC5423}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reminder", "Reminder\Reminder.csproj", "{DFF3646D-7118-4981-A4A2-6DB178A135DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{9BD373D4-4F3F-4799-839F-F8CF16EC5423}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BD373D4-4F3F-4799-839F-F8CF16EC5423}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BD373D4-4F3F-4799-839F-F8CF16EC5423}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFF3646D-7118-4981-A4A2-6DB178A135DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFF3646D-7118-4981-A4A2-6DB178A135DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFF3646D-7118-4981-A4A2-6DB178A135DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFF3646D-7118-4981-A4A2-6DB178A135DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +52,7 @@ Global
 		{24DA9EEB-C39A-4404-A626-0644F97C3D77} = {9EC97335-7AE5-4082-B64F-6CFFF15ED912}
 		{31050340-A1C5-4D1D-91A4-7BC5D475D534} = {2867ACBD-336B-4B02-90DC-96698D87ED9F}
 		{9BD373D4-4F3F-4799-839F-F8CF16EC5423} = {9EC97335-7AE5-4082-B64F-6CFFF15ED912}
+		{DFF3646D-7118-4981-A4A2-6DB178A135DF} = {9EC97335-7AE5-4082-B64F-6CFFF15ED912}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AB9E4F02-86AE-4DAC-A863-D7D7AD18EBAB}

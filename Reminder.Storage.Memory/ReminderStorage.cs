@@ -6,8 +6,8 @@ namespace Reminder.Storage.Memory
 {
     public class ReminderStorage : IReminderStorage
     {
-        private readonly Dictionary<Guid, ReminderItem> _map = 
-            new Dictionary<Guid, ReminderItem>() ;
+        private readonly Dictionary<Guid, ReminderItem> _map =
+            new Dictionary<Guid, ReminderItem>();
 
         public void Create(ReminderItem item)
         {
@@ -24,14 +24,26 @@ namespace Reminder.Storage.Memory
             _map[item.Id] = item;
         }
 
-        public List<ReminderItem> FindByDateTime(DateTimeOffset dateTime)
+        public List<ReminderItem> FindBy(ReminderItemFilter filter)
         {
-            if (dateTime == default)
+            if (filter == null)
             {
-                throw new ArgumentException("Incorrect value of date / time", nameof(dateTime));
+                throw new ArgumentNullException(nameof(filter));
             }
 
-            return _map.Values.Where(item => item.MessageDate <= dateTime).ToList();
+            var result = _map.Values.AsEnumerable();
+
+            if (filter.Status.HasValue)
+            {
+                result = result.Where(item => item.Status == filter.Status.Value);
+            }
+
+            if (filter.DateTime.HasValue)
+            {
+                result = result.Where(item => item.MessageDate == filter.DateTime.Value);
+            }
+
+            return result.ToList();
         }
 
         public ReminderItem FindById(Guid id)
@@ -39,7 +51,7 @@ namespace Reminder.Storage.Memory
             if (!_map.ContainsKey(id))
             {
                 throw new ArgumentException($"Element with id {id} not found", nameof(id));
-            }               
+            }
 
             return _map[id];
         }
