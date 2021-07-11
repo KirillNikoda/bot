@@ -10,8 +10,7 @@ namespace Reminder
         {
             Console.WriteLine("[Reminder Notifier].. starting");
 
-            var storage = new ReminderStorage();
-            var service = new ReminderService(storage);
+            var service = new ReminderService(new ReminderStorage(), new ReminderServiceParameters());
 
             service.ReminderItemFired += OnReminderItemFired;
             service.Create(

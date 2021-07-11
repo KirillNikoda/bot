@@ -7,7 +7,7 @@ namespace Reminder.Domain
     public class CreateReminderModel
     {
         public string ContactId { get; set; }
-        public string Message { get; set; } 
+        public string Message { get; set; }
         public DateTimeOffset MessageDate { get; set; }
 
         public CreateReminderModel(string message, DateTimeOffset messageDate)
@@ -30,7 +30,7 @@ namespace Reminder.Domain
         }
     }
 
-    public class ReminderService
+    public class ReminderService : IDisposable
     {
         public event EventHandler<ReminderModelEventArgs> ReminderItemFired;
 
@@ -38,12 +38,25 @@ namespace Reminder.Domain
         private readonly Timer _readyItemTimer;
 
         private readonly IReminderStorage _storage;
+        
 
-        public ReminderService(IReminderStorage storage)
+        public ReminderService(IReminderStorage storage, ReminderServiceParameters parameters)
         {
             _storage = storage;
-            _createdItemTimer = new Timer(OnCreatedItemTimerTick, null, TimeSpan.Zero, TimeSpan.FromSeconds(1));
-            _readyItemTimer = new Timer(OnReadyItemTimerTick, null, TimeSpan.Zero, TimeSpan.FromSeconds(1));
+
+            _createdItemTimer = new Timer(
+                OnCreatedItemTimerTick,
+                null,
+                parameters.CreateTimerDelay,
+                parameters.CreateTimerInterval
+               );
+
+            _readyItemTimer = new Timer(
+                OnReadyItemTimerTick,
+                null,
+                TimeSpan.Zero,
+                TimeSpan.FromSeconds(1)
+               );
         }
 
         public void Create(CreateReminderModel reminderModel)
@@ -94,6 +107,12 @@ namespace Reminder.Domain
             {
                 _storage.Update(item.Failed());
             }
+        }
+
+        public void Dispose()
+        {
+            _createdItemTimer.Dispose();
+            _readyItemTimer.Dispose();
         }
     }
 

@@ -17,9 +17,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reminder.Domain", "Reminder
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reminder", "Reminder\Reminder.csproj", "{DFF3646D-7118-4981-A4A2-6DB178A135DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reminder.Sender", "Reminder.Sender\Reminder.Sender.csproj", "{45D0C564-8502-42BE-87CE-C1F7B1E6DF3C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reminder.Sender", "Reminder.Sender\Reminder.Sender.csproj", "{45D0C564-8502-42BE-87CE-C1F7B1E6DF3C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reminder.Receiver", "Reminder.Receiver\Reminder.Receiver.csproj", "{CDAF2C12-DF87-4219-ACEF-B2FFD24876A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reminder.Receiver", "Reminder.Receiver\Reminder.Receiver.csproj", "{CDAF2C12-DF87-4219-ACEF-B2FFD24876A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reminder.Domain.Tests", "Reminder.Domain.Tests\Reminder.Domain.Tests.csproj", "{24261CE3-39CC-4211-B675-7B60591750A3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +57,10 @@ Global
 		{CDAF2C12-DF87-4219-ACEF-B2FFD24876A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CDAF2C12-DF87-4219-ACEF-B2FFD24876A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CDAF2C12-DF87-4219-ACEF-B2FFD24876A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24261CE3-39CC-4211-B675-7B60591750A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24261CE3-39CC-4211-B675-7B60591750A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24261CE3-39CC-4211-B675-7B60591750A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24261CE3-39CC-4211-B675-7B60591750A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +73,7 @@ Global
 		{DFF3646D-7118-4981-A4A2-6DB178A135DF} = {9EC97335-7AE5-4082-B64F-6CFFF15ED912}
 		{45D0C564-8502-42BE-87CE-C1F7B1E6DF3C} = {9EC97335-7AE5-4082-B64F-6CFFF15ED912}
 		{CDAF2C12-DF87-4219-ACEF-B2FFD24876A0} = {9EC97335-7AE5-4082-B64F-6CFFF15ED912}
+		{24261CE3-39CC-4211-B675-7B60591750A3} = {2867ACBD-336B-4B02-90DC-96698D87ED9F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AB9E4F02-86AE-4DAC-A863-D7D7AD18EBAB}
